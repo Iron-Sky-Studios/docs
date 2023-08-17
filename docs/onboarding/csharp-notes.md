@@ -2,8 +2,6 @@
   <h1>C# Notes</h1>
 </div>
 
-<br>
-
 ### Basic Code Structure
 
 ```csharp
