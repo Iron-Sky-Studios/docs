@@ -5,7 +5,6 @@ site_description: Documentation for Iron Sky Studios
 repo_url: https://github.com/Iron-Sky-Studios/
 
 extra:
-  generator: false
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/yGuQqQFx
@@ -24,6 +23,12 @@ theme:
     - content.code.copy
     - content.code.select
     - navigation.footer
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - toc.integrate
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -54,4 +59,5 @@ nav:
       - "1 - Git Starter Pack": "onboarding/1-git-starter-pack.md"
       - "2 - Git Collab Starter Pack": "onboarding/2-git-collab-starter-pack.md"
       - "3 - C# Google Style Guide": "onboarding/3-csharp-google-styleguide.md"
-      - "C# Notes": "onboarding/csharp-notes.md"
+  - Dev Notes:
+      - "C# Notes": "notes/csharp.md"
