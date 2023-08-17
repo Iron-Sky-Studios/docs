@@ -1,0 +1,31 @@
+site_name: Iron Sky Studios Documentation
+site_url: https://github.com/Iron-Sky-Studios/
+site_description: Documentation for Iron Sky Studios
+
+repo_url: https://github.com/Iron-Sky-Studios/
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - content.code.select
+
+markdown_extensions:
+  - toc:
+      anchorlink: True
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+
+nav:
+  - Home: "index.md"
+  - Onboarding:
+      - "1 - Git Starter Pack": "onboarding/1-git-starter-pack.md"
+      - "2 - Git Collab Starter Pack": "onboarding/2-git-collab-starter-pack.md"
+      - "3 - C# Google Style Guide": "onboarding/3-csharp-google-styleguide.md"
+      - "C# Notes": "onboarding/csharp-notes.md"
