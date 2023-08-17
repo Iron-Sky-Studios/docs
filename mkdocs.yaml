@@ -4,11 +4,38 @@ site_description: Documentation for Iron Sky Studios
 
 repo_url: https://github.com/Iron-Sky-Studios/
 
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/yGuQqQFx
+    - icon: material/gmail
+      link: mailto:ironskystudios@gmail.com
+    - icon: material/web
+      link: https://iron-sky-studios.github.io/
+    - icon: fontawesome/brands/github
+      link: https://github.com/Iron-Sky-Studios
+
+copyright: Copyright &copy; 2023 Iron Sky Studios
+
 theme:
   name: material
   features:
     - content.code.copy
     - content.code.select
+    - navigation.footer
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
 
 markdown_extensions:
   - toc:
