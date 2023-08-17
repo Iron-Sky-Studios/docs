@@ -50,9 +50,8 @@ jobs:
           git config --global user.email ${user_email}
           git remote set-url origin https://${github_token}@github.com/${github_repository}
           mkdocs gh-deploy
-
         env:
           user_name: 'seyLu-bot'
           user_email: '141534257+seyLu-bot@users.noreply.github.com'
-          github_token: ${{ secrets.SEYLUBOT_PAT}}
+          github_token: ${{ secrets.SEYLUBOT_PAT }}
           github_repository: ${{ github.repository }}
