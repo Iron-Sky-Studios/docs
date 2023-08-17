@@ -52,7 +52,7 @@ jobs:
           mkdocs gh-deploy
 
         env:
-          user_name: 'github-actions[bot]'
-          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          user_name: 'seyLu-bot'
+          user_email: '141534257+seyLu-bot@users.noreply.github.com'
           github_token: ${{ secrets.SEYLUBOT_PAT}}
           github_repository: ${{ github.repository }}
