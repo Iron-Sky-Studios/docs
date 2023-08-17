@@ -45,7 +45,6 @@ jobs:
           mkdocs-material
 
       - name: Build & Deploy
-        working-directory: /
         run: |
           git config --global user.name ${user_name}
           git config --global user.email ${user_email}
