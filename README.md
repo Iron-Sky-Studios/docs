@@ -21,7 +21,7 @@ python==3.11
 <br>
 
 ## Setup
-### Python Dependencies
+### Install Python Dependencies
 
 ```bash
 python -m virtualenv .venv
@@ -32,10 +32,10 @@ source .venv/bin/activate
 # Windows
 .\.venv\Scripts\activate
 
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-### Pre-commit
+### Install Pre-commit Hook
 
 ```bash
 pre-commit install
@@ -47,4 +47,12 @@ pre-commit install
 
 ```bash
 mkdocs serve
+```
+
+<br>
+
+## Manual Deployment to Github Pages
+
+```bash
+mkdocs gh-deploy
 ```
