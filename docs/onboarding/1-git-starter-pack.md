@@ -1,49 +1,65 @@
 # Git Starter Pack
 
+A Git starter pack covers fundamental commands for version control.
+## Cloning a Repo
 
-1. Cloning a Repo
+Create a copy of a remote repository onto your local machine.
 
-    ```bash
-    git clone <repo_name>
-    ```
+```bash
+git clone <repo_name>
+```
 
-2. Add changes
+## Adding changes
 
-    - Multiple files/directories
+Add modified files to the staging area and prepare them for a commit.
 
-        ```bash
-        git add <file_1> <file_2> <dir_1> ...
-        ```
+### Adding selected files/directories
 
-    - All changes in files/directories
+Stage only chosen modifications for the next commit.
 
-        ```bash
-        git add .
-        ```
+```bash
+git add <file_1> <file_2> <dir_1> ...
+```
 
-3. Commit the changes made
+### Adding all changes made
 
-    ```bash
-    git commit -m "<message>"
-    ```
+Stage all modifications across the entire working directory for the upcoming commit.
 
-    - Best practices for more descriptive commit message
+```bash
+git add .
+```
 
-        ```bash
-        feat: <message>          # adding/deleting feature changes
-        bugfix: <message>        # fixing bugs
-        chore: <message>         # any changes not feat/bugfix
-        docs: <message>          # improve documentation
-        ```
+## Committing the changes made
 
-4. Push changes from local to remote
+Create a snapshot of the staged changes along with a descriptive message, recording a new point in the project's history.
 
-    ```bash
-    git push
-    ```
+```bash
+git commit -m "<message>"
+```
 
-5. Pull changes from remote to local
+### Descriptive commit message
 
-    ```bash
-    git pull
-    ```
+A descriptive commit message provides clear context and history, aiding collaboration and future reference for understanding the purpose and impact of the committed changes.
+
+```bash
+feat: <message>          # adding/deleting feature changes
+bugfix: <message>        # fixing bugs
+chore: <message>         # any changes not feat/bugfix
+docs: <message>          # improve documentation
+```
+
+## Push changes from local to remote
+
+Transmit your local commits and changes to a shared repository, enabling collaboration and synchronization with other team members.
+
+```bash
+git push
+```
+
+## Pull changes from remote to local
+
+Fetch and integrate the latest updates from the shared repository into your local codebase.
+
+```bash
+git pull
+```
