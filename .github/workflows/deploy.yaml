@@ -45,4 +45,14 @@ jobs:
           mkdocs-material
 
       - name: Build & Deploy
-        run: mkdocs gh-deploy
+        run: |
+          git config --global user.name ${user_name}
+          git config --global user.email ${user_email}
+          git remote set-url origin https://${github_token}@github.com/${github_repository}
+          mkdocs gh-deploy
+
+        env:
+          user_name: 'github-actions[bot]'
+          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          github_token: ${{ secrets.SEYLUBOT_PAT}}
+          github_repository: ${{ github.repository }}
