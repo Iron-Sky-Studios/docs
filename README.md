@@ -24,15 +24,15 @@ python==3.11
 ### Install Python Dependencies
 
 ```bash
-python -m virtualenv .venv
+python3 -m venv .venv
 
 # Linux/Mac
-source .venv/bin/activate
+. .venv/bin/activate
 
 # Windows
-.\.venv\Scripts\activate
+. .venv/Scripts/activate
 
-python -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 ### Install Pre-commit Hook
