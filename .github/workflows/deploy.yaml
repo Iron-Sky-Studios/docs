@@ -46,6 +46,8 @@ jobs:
 
       - name: Build & Deploy
         run: |
+          echo ${user_name}
+          echo ${user_bot}
           git config --global user.name ${user_name}
           git config --global user.email ${user_email}
           git remote set-url origin https://${github_token}@github.com/${github_repository}
