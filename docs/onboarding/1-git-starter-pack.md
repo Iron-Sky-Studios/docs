@@ -1,6 +1,6 @@
 # Git Starter Pack
 
-A Git starter pack covers fundamental commands for version control.
+This starter pack covers fundamental commands for version control.
 ## Cloning a Repo
 
 Create a copy of a remote repository onto your local machine.
