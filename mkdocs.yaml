@@ -20,6 +20,7 @@ copyright: Copyright &copy; 2023 Iron Sky Studios
 theme:
   name: material
   features:
+    - content.code.annotate
     - content.code.copy
     - content.code.select
     - navigation.footer
@@ -54,6 +55,8 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - admonition
+  - attr_list
+  - md_in_html
 
 nav:
   - Home: "index.md"

@@ -48,7 +48,7 @@ chore: <message>         # any changes not feat/bugfix
 docs: <message>          # improve documentation
 ```
 
-## Push changes from local to remote
+## Pushing changes from local to remote
 
 Transmit your local commits and changes to a shared repository, enabling collaboration and synchronization with other team members.
 
@@ -56,7 +56,7 @@ Transmit your local commits and changes to a shared repository, enabling collabo
 git push
 ```
 
-## Pull changes from remote to local
+## Pulling changes from remote to local
 
 Fetch and integrate the latest updates from the shared repository into your local codebase.
 

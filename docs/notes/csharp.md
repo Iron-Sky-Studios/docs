@@ -1,100 +1,162 @@
 # C# Notes
-### Basic Code Structure
 
-```csharp
-using <Namespace.Class.Method>;
-...
+## Basic Code Structure
 
-namespace <Namespace>
-{
-    <access_modifier> class <Class>
+=== "Basic Skeleton"
+
+    ```csharp linenums="1"
+    using <Namespace.Class.Method>;
+    ...
+
+    namespace <Namespace>
     {
-        <access_modifier> <return_type> <Method>(<type> param)
+        <access_modifier> class <Class>
         {
-            ...
+            <access_modifier> <return_type> <Method>(<type> param)
+            {
+                ...
+            }
         }
     }
-}
-```
+    ```
 
-<br>
+=== "Sample Code"
 
-### Basic Data Types
+    ```csharp linenums="1"
+    using System;
 
-```csharp
-string characterName = "Zelda";  # strings in double quotes
-char characterRank = 'A';        # char in single quote
-int characterAge = 1;
-bool isMale = true;              # small caps true/false
+    namespace Greeting
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Console.WriteLine("Hello World");
+            }
+        }
+    }
+    ```
 
-## to represent decimal numbers:
-float                            # least precise
+## Basic Data Types
+
+```csharp linenums="1"
+string characterName = "Zelda";  // strings in double quotes
+char characterRank = 'A';        // char in single quote
+int characterAge = 100;
+bool isMale = false;             // small caps true/false
+
+// to represent decimal numbers:
+float                            // least precise
 double
-decimal                          # most precise (usually used for storing stuff like money, etc.)
+decimal                          // most precise (1)
 ```
 
-<br>
+1. usually used for storing stuff like money, etc.
 
-### Strings
+## Strings
 
-```csharp
+### Literal Strings
+
+```csharp linenums="1"
 string literalStr = "\nThis will print a new line";
+```
 
-string verbatimStr = @"\nThis will not print new line";             # verbatim string
-string winPath = @"C:\Users\path\to\file";                          # mostly used to use escape sequences w/o escaping it in one line
-string linkTag = @"<link rel=""stylesheet"" src=""path/to/css"">";  # eg. to represent " within a string
+### Verbatim Strings
 
-string rawStr = """                                                 # raw string (multi-line to use unescaped escape sequences)
-  This is a raw string.                                             # out-indenting delimeter is invalid raw string:
-  Lines cannot out-indent                                           #   This raw string will throw an error
-  the delimeter                                                     #     """;
-""";                                                                # notice that delimeter """ is it's own line
+Mostly used to use unescaped sequences in one line.
+
+```csharp linenums="1"
+string verbatimStr = @"\nThis will not print new line";
+string winPath = @"C:\Users\path\to\file";
+string linkTag = @"<link rel=""stylesheet"" src=""path/to/css"">";
+```
+
+### Raw Strings
+
+Multi-line use of unescaped escape sequences.
+
+```csharp linenums="1"
+string rawStr = """
+  This is a raw string.
+  Lines cannot out-indent // (1)!
+  the delimeter
+""";                       // notice that the delimeter """ is it's own line
+
+// raw strings are best used for representing json/xml/html
+// example usage using Bogus library (C# port of faker.js)
 string jsonStr = $"""
   [
     {
-      "id": 1,                                                      # raw strings are best used for representing json/xml/html
-      "first_name": {faker.Name.FirstName()},                       # example usage using Bogus library (C# port of faker.js)
+      "id": 1,
+      "first_name": {faker.Name.FirstName()},
       "last_name": {faker.Name.LastName()},
       "email": {faker.Internet.Email()},
       "mobile_number": {faker.Phone.PhoneNumber()}
     }
   ]
 """;
+```
 
+1. out-indenting delimeter is invalid raw string:
+    ```csharp
+    string rawString="""
+    This raw string will throw an error
+        """;
+    ```
 
-char[] helloChars = { 'h', 'e', 'l', 'l', 'o' };
-string helloStr = new string(helloChars);                          # friendly reminder that string is just an array of chars
-string repeatedChar = new string('c', 20);                         # create a string with char repeated x times
+### Props and Methods
 
-
-# for list of available string props and methods
-# see: https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0#properties
-# eg:
+```csharp linenums="1"
+// for list of available string props and methods
+// see: https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0#properties
 string phrase = "hello";
-phrase.Length;                                                     # returns string length
-phrase.Contains("El");                                             # returns bool (case-sensitive)
-# some more examples: ToLower(), ToUpper(), IndexOf(<char>), Substring(<int: start_index>, <Optional[int]: substring_length>)
+phrase.Length;           // returns string length
+phrase.Contains("El");   // returns bool (case-sensitive)
+// some more examples: ToLower(), ToUpper(), IndexOf(<char>),
+// Substring(<int: start_index>, <Optional[int]: substring_length>)
+```
 
+### String Interpolation
 
-# for list of available char props and methods
-# see: https://learn.microsoft.com/en-us/dotnet/api/system.char?view=net-7.0#fields
-# eg:
-char firstCharInPhrase = phrase[0];
-Console.WriteLine(Char.IsLower(firstCharInPhrase));                 # as to why we can't just do firstCharInPhrase.IsLower(), don't ask me why
-
-
+```csharp linenums="1"
 (string firstName, string lastName) profile = (firstName: "John", lastName: "Doe");
-string fullName = $"{profile.firstName} {profile.lastName}";        # string interpolation
-fullName = $@"C:\Users\{profile.firstName}\path\to\file"            # verbatim string interpolation, can also be @$"<string>"
+string fullName = $"{profile.firstName} {profile.lastName}";
+fullName = $@"C:\Users\{profile.firstName}\path\to\file";  // can also be @$
 
 (int X, int Y) coordinate = (X: 2, Y: 3);
-# on raw strings, the number of $ specify the number of {} to start and end interpolation
-string coordinateMessage = $$"""Coordinate is {{{coordiate.X}}, {{coordinate.Y}}}""";
+string coordinateMessage = $$"""Coordinate is {{{coordiate.X}}, {{coordinate.Y}}}"""; // (1)!
+```
 
+1. on raw strings, the number of `$` specify the number of `{` `}` to start and end interpolation
+
+### Format String
+
+```csharp linenums="1"
 DateTime currentDateTime = DateTime.Now;
-Console.WriteLine(currentDateTime.ToString("yyyy-MM-dd"));          # format string
+Console.WriteLine(currentDateTime.ToString("yyyy-MM-dd"));
+```
 
+### Chars
 
-# if in need of performance
-# see: System.Text.StringBuilder
+```csharp linenums="1"
+char[] helloChars = { 'h', 'e', 'l', 'l', 'o' };
+string helloStr = new string(helloChars);   // friendly reminder that string is just an array of chars
+string repeatedChar = new string('c', 20);  // create a string with char repeated x times
+```
+#### Props and Methods
+
+```csharp linenums="1"
+// for list of available char props and methods
+// see: https://learn.microsoft.com/en-us/dotnet/api/system.char?view=net-7.0#fields
+char firstCharInPhrase = phrase[0];
+Console.WriteLine(Char.IsLower(firstCharInPhrase)); // (1)!
+```
+
+1. as to why we can't just do `firstCharInPhrase.IsLower()`, don't ask me why
+
+### String Builder
+
+```csharp linenums="1"
+// if in need of performance
+// see: System.Text.StringBuilder
 ```
