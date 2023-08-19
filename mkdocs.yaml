@@ -29,7 +29,6 @@ theme:
     - navigation.top
     - navigation.tracking
     - toc.follow
-    - toc.integrate
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -41,6 +40,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - toc:

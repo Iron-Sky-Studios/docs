@@ -108,7 +108,7 @@ string jsonStr = $"""
 
 ```csharp linenums="1"
 // for list of available string props and methods
-// see: https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0#properties
+// see: https://learn.microsoft.com/en-us/dotnet/api/system.string?#properties
 string phrase = "hello";
 phrase.Length;           // returns string length
 phrase.Contains("El");   // returns bool (case-sensitive)
@@ -123,8 +123,8 @@ phrase.Contains("El");   // returns bool (case-sensitive)
 string fullName = $"{profile.firstName} {profile.lastName}";
 fullName = $@"C:\Users\{profile.firstName}\path\to\file";  // can also be @$
 
-(int X, int Y) coordinate = (X: 2, Y: 3);
-string coordinateMessage = $$"""Coordinate is {{{coordiate.X}}, {{coordinate.Y}}}"""; // (1)!
+(int X, int Y) coord = (X: 2, Y: 3);
+string coordMessage = $$"""Coordinate is {{{coordiate.X}}, {{coordinate.Y}}}"""; // (1)!
 ```
 
 1. on raw strings, the number of `$` specify the number of `{` `}` to start and end interpolation
@@ -140,14 +140,16 @@ Console.WriteLine(currentDateTime.ToString("yyyy-MM-dd"));
 
 ```csharp linenums="1"
 char[] helloChars = { 'h', 'e', 'l', 'l', 'o' };
-string helloStr = new string(helloChars);   // friendly reminder that string is just an array of chars
-string repeatedChar = new string('c', 20);  // create a string with char repeated x times
+// friendly reminder that string is just an array of chars
+string helloStr = new string(helloChars);
+// create a string with char repeated x times
+string repeatedChar = new string('c', 20);
 ```
 #### Props and Methods
 
 ```csharp linenums="1"
 // for list of available char props and methods
-// see: https://learn.microsoft.com/en-us/dotnet/api/system.char?view=net-7.0#fields
+// see: https://learn.microsoft.com/en-us/dotnet/api/system.char?#fields
 char firstCharInPhrase = phrase[0];
 Console.WriteLine(Char.IsLower(firstCharInPhrase)); // (1)!
 ```
