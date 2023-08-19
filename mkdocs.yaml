@@ -68,3 +68,4 @@ nav:
       - "3 - C# Google Style Guide": "onboarding/3-csharp-google-styleguide.md"
   - Dev Notes:
       - "C# Notes": "notes/csharp.md"
+      - "TypeScript Notes": "notes/typescript.md"
